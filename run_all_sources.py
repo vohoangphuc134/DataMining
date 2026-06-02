@@ -95,7 +95,7 @@ def load_processed_urls(file_path):
 
 def main():
     Path("output").mkdir(exist_ok=True)
-    out_csv = "output/data_BDS_TPHCM1.csv"
+    out_csv = "output/data_BDS_TPHCM(mogi).csv"
     
     # Lấy danh sách các URL đã cào từ trước để tránh trùng lặp
     processed_urls = load_processed_urls(out_csv)
