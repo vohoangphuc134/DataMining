@@ -85,7 +85,7 @@ def build_driver():
     opts.add_argument("--no-sandbox")
     opts.add_argument("--disable-dev-shm-usage")
     return uc.Chrome(options=opts, headless=False,
-                     use_subprocess=True, version_main=ver)
+                     use_subprocess=True, version_main=148)
 
 
 # =================================================================
