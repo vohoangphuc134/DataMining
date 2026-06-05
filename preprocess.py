@@ -209,12 +209,29 @@ print("Đã loại:", before - after, "outlier")
 # 12. Lưu file sạch
 # =========================
 
-output_file = os.path.join("output", "cleaned_bds_hcm.csv")
+# CSV
+csv_file = os.path.join(
+    "output",
+    "cleaned_bds_hcm.csv"
+)
 
 df.to_csv(
-    output_file,
+    csv_file,
     index=False,
     encoding="utf-8-sig"
 )
 
-print(f"\nĐã lưu file: {output_file}")
+# Excel
+excel_file = os.path.join(
+    "output",
+    "cleaned_bds_hcm.xlsx"
+)
+
+df.to_excel(
+    excel_file,
+    index=False,
+    engine="openpyxl"
+)
+
+print(f"\nĐã lưu CSV: {csv_file}")
+print(f"Đã lưu Excel: {excel_file}")

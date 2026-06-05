@@ -63,12 +63,29 @@ print(df_selected.head())
 # 4. Lưu file sau Feature Selection
 # =========================
 
-output_file = os.path.join("output", "bds_hcm_selected_features.csv")
+# CSV
+csv_file = os.path.join(
+    "output",
+    "bds_hcm_selected_features.csv"
+)
 
 df_selected.to_csv(
-    output_file,
+    csv_file,
     index=False,
     encoding="utf-8-sig"
 )
 
-print(f"\nĐã lưu file: {output_file}")
+# Excel
+excel_file = os.path.join(
+    "output",
+    "bds_hcm_selected_features.xlsx"
+)
+
+df_selected.to_excel(
+    excel_file,
+    index=False,
+    engine="openpyxl"
+)
+
+print(f"\nĐã lưu CSV: {csv_file}")
+print(f"Đã lưu Excel: {excel_file}")
