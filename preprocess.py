@@ -11,6 +11,7 @@ csv_files = [
     os.path.join(folder, file)
     for file in os.listdir(folder)
     if file.endswith(".csv")
+    and not file.startswith("cleaned_")
 ]
 
 dataframes = []
