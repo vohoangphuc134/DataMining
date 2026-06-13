@@ -47,11 +47,18 @@ print(df.columns)
 # 3. Xóa dữ liệu trùng
 # =========================
 
+# Xóa dòng trùng hoàn toàn
 df = df.drop_duplicates()
 
-if "url" in df.columns:
-    df = df.drop_duplicates(subset=["url"])
-
+# Xóa bất động sản trùng giữa các nguồn
+df = df.drop_duplicates(
+    subset=[
+        "property_type",
+        "district",
+        "price",
+        "area"
+    ]
+)
 
 # =========================
 # 4. Chuyển đổi giá và diện tích
