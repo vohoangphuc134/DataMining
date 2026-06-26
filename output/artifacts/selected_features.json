@@ -1,0 +1,23 @@
+{
+  "selected_features": [
+    "price_per_m2_safe",
+    "price_tier_enc",
+    "district_enc",
+    "log_area",
+    "property_type_enc",
+    "legal_status_enc",
+    "seller_type_enc",
+    "bedroom_per_area",
+    "bedrooms",
+    "frontage"
+  ],
+  "target": "log_price",
+  "cat_cols_encoded": [
+    "property_type",
+    "district",
+    "legal_status",
+    "furniture_state",
+    "seller_type",
+    "price_tier"
+  ]
+}

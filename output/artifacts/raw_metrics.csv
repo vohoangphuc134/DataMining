@@ -1,0 +1,4 @@
+﻿model,val_MAE_ty,val_RMSE_ty,val_R2,test_MAE_ty,test_RMSE_ty,test_R2,cv_R2_mean,cv_R2_std
+Ridge Regression,1.554,3.6,0.8789,1.636,4.07,0.9035,0.905,0.0034
+Random Forest,0.131,0.72,0.9951,0.126,0.603,0.9958,0.9974,0.0005
+Gradient Boosting,0.101,0.262,0.9969,0.114,0.415,0.9981,0.9989,0.0001
