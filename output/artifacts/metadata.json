@@ -1,0 +1,201 @@
+{
+  "project": "Dự đoán giá bất động sản TP.HCM",
+  "version": "1.0.0",
+  "timestamp": "2026-06-26T23:16:03.112412",
+  "lineage": {
+    "input_file": "output\\bds_hcm_selected_features.csv",
+    "dataset_hash_md5": "3245f2d2ab99f8cbb22f1374bb89292a",
+    "n_total_samples": 10739,
+    "n_train": 7517,
+    "n_val": 1611,
+    "n_test": 1611
+  },
+  "config": {
+    "random_seed": 42,
+    "train_ratio": 0.7,
+    "val_ratio": 0.15,
+    "test_ratio": 0.15,
+    "n_clusters": 4,
+    "top_k_features": 10,
+    "stratify_by": "property_type_enc"
+  },
+  "best_supervised_model": {
+    "name": "Gradient Boosting",
+    "hyperparameters": {
+      "n_estimators": 300,
+      "max_depth": 5,
+      "learning_rate": 0.05,
+      "subsample": 0.8
+    },
+    "selected_features": [
+      "price_per_m2_safe",
+      "price_tier_enc",
+      "district_enc",
+      "log_area",
+      "property_type_enc",
+      "legal_status_enc",
+      "seller_type_enc",
+      "bedroom_per_area",
+      "bedrooms",
+      "frontage"
+    ],
+    "val_R2": 0.9969,
+    "test_R2": 0.9981,
+    "test_MAE_ty": 0.114,
+    "test_RMSE_ty": 0.415,
+    "cv_R2_mean": 0.9989,
+    "cv_R2_std": 0.0001,
+    "artifact": "artifacts/best_model.pkl"
+  },
+  "unsupervised": {
+    "kmeans": {
+      "k": 4,
+      "silhouette_score": 0.4495,
+      "cluster_tiers": {
+        "2": "Bình dân",
+        "0": "Trung cấp",
+        "1": "Cao cấp",
+        "3": "Luxury"
+      },
+      "artifact": "artifacts/kmeans_model.pkl"
+    },
+    "dbscan": {
+      "eps": 0.5,
+      "min_samples": 10,
+      "n_outliers": 55,
+      "outlier_rate_pct": 0.51,
+      "artifact": "artifacts/dbscan_model.pkl"
+    }
+  },
+  "all_models_results": [
+    {
+      "model": "Ridge Regression",
+      "val_MAE_ty": 1.554,
+      "val_RMSE_ty": 3.6,
+      "val_R2": 0.8789,
+      "test_MAE_ty": 1.636,
+      "test_RMSE_ty": 4.07,
+      "test_R2": 0.9035,
+      "cv_R2_mean": 0.905,
+      "cv_R2_std": 0.0034
+    },
+    {
+      "model": "Random Forest",
+      "val_MAE_ty": 0.131,
+      "val_RMSE_ty": 0.72,
+      "val_R2": 0.9951,
+      "test_MAE_ty": 0.126,
+      "test_RMSE_ty": 0.603,
+      "test_R2": 0.9958,
+      "cv_R2_mean": 0.9974,
+      "cv_R2_std": 0.0005
+    },
+    {
+      "model": "Gradient Boosting",
+      "val_MAE_ty": 0.101,
+      "val_RMSE_ty": 0.262,
+      "val_R2": 0.9969,
+      "test_MAE_ty": 0.114,
+      "test_RMSE_ty": 0.415,
+      "test_R2": 0.9981,
+      "cv_R2_mean": 0.9989,
+      "cv_R2_std": 0.0001
+    }
+  ],
+  "mutual_information": [
+    {
+      "feature": "price_per_m2_safe",
+      "mi_score": 1.4212157747336045
+    },
+    {
+      "feature": "price_tier_enc",
+      "mi_score": 0.7671102480474983
+    },
+    {
+      "feature": "district_enc",
+      "mi_score": 0.7126328620205653
+    },
+    {
+      "feature": "log_area",
+      "mi_score": 0.4869092779228641
+    },
+    {
+      "feature": "property_type_enc",
+      "mi_score": 0.43874312284405814
+    },
+    {
+      "feature": "legal_status_enc",
+      "mi_score": 0.43164324067344717
+    },
+    {
+      "feature": "seller_type_enc",
+      "mi_score": 0.4020050582630774
+    },
+    {
+      "feature": "bedroom_per_area",
+      "mi_score": 0.36261212927562525
+    },
+    {
+      "feature": "bedrooms",
+      "mi_score": 0.2490400072053558
+    },
+    {
+      "feature": "frontage",
+      "mi_score": 0.204517244927509
+    },
+    {
+      "feature": "bathrooms",
+      "mi_score": 0.19226561033736944
+    },
+    {
+      "feature": "acces_road",
+      "mi_score": 0.17480215730079607
+    },
+    {
+      "feature": "furniture_state_enc",
+      "mi_score": 0.15189551809758672
+    },
+    {
+      "feature": "floors",
+      "mi_score": 0.13989642615539521
+    }
+  ],
+  "elbow_inertia": [
+    {
+      "k": 2,
+      "inertia": 13891.87
+    },
+    {
+      "k": 3,
+      "inertia": 7348.45
+    },
+    {
+      "k": 4,
+      "inertia": 5546.11
+    },
+    {
+      "k": 5,
+      "inertia": 3980.99
+    },
+    {
+      "k": 6,
+      "inertia": 3383.86
+    },
+    {
+      "k": 7,
+      "inertia": 2968.09
+    },
+    {
+      "k": 8,
+      "inertia": 2609.97
+    },
+    {
+      "k": 9,
+      "inertia": 2296.06
+    },
+    {
+      "k": 10,
+      "inertia": 2025.59
+    }
+  ]
+}
