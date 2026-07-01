@@ -68,26 +68,6 @@ def main():
         ax1.annotate(f'{int(p.get_height())}', (p.get_x() + p.get_width() / 2., p.get_height()), ha='center', va='center', xytext=(0, 5), textcoords='offset points')
     plt.tight_layout()
 
-    # Biểu đồ 2: Đánh giá Chất lượng dữ liệu (% tin có nhập Diện tích đầy đủ)
-    plt.figure(figsize=(10, 6))
-    ax2 = sns.barplot(data=quality_df, x='website_source', y='has_area_pct', hue='website_source', palette='Set1', legend=False)
-    plt.title('Chất lượng tin đăng (% tin có nhập Diện tích)', fontsize=15, fontweight='bold')
-    plt.ylabel('Tỷ lệ phần trăm (%)')
-    plt.xlabel('Nguồn Website')
-    plt.ylim(0, 110)
-    for p in ax2.patches:
-        ax2.annotate(f'{p.get_height():.1f}%', (p.get_x() + p.get_width() / 2., p.get_height()), ha='center', va='center', xytext=(0, 5), textcoords='offset points')
-    plt.tight_layout()
-
-    # Biểu đồ 3: So sánh Giá/m2 giữa các Web (Boxplot)
-    plt.figure(figsize=(10, 6))
-    sns.boxplot(data=df_clean, x='website_source', y='price_per_m2', hue='website_source', palette='pastel', legend=False)
-    plt.title('So sánh Mức Giá/m2 Đăng bán giữa các Web\n(Nhìn ra web nào hay đăng giá rẻ ảo)', fontsize=15, fontweight='bold')
-    plt.ylabel('Giá / m2 (Triệu VNĐ)')
-    plt.xlabel('Nguồn Website')
-    plt.tight_layout()
-    
-    print("Đang hiển thị 3 biểu đồ trên 3 cửa sổ riêng biệt...")
     plt.show()
 
 if __name__ == '__main__':
